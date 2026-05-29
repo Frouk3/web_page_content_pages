@@ -3,7 +3,7 @@
         "slug": "about-me",
         "title": "About Me",
         "date": "2025-10-12",
-        "summary": "About me page",
+        "summary": "Learn more about Frouk",
         "cover": "images/aboutme-preview.png",
         "body": "posts/about-me.md",
         "tags": ["Blog", "Story"]
