@@ -7,14 +7,5 @@
         "cover": "images/aboutme-preview.png",
         "body": "posts/about-me.md",
         "tags": ["Blog", "Story"]
-    },
-    {
-        "slug": "one-more",
-        "title": "testing",
-        "date": "2026-12-12",
-        "summary": "Testing",
-        "cover": null,
-        "body": "posts/test.md",
-        "tags": ["zhuk"]
     }
 ]
