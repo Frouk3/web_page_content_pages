@@ -7,5 +7,14 @@
         "cover": "images/aboutme-preview.png",
         "body": "posts/about-me.md",
         "tags": ["Test", "test"]
+    },
+    {
+        "slug": "ahh-yes",
+        "title": "Testing",
+        "date": "9999-99-99",
+        "summary": "yes",
+        "cover": null,
+        "body": "posts/test.md",
+        "tags": []
     }
 ]
