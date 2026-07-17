@@ -20,6 +20,7 @@ Nonetheless, here's the brief explanation:<br>
     4. The mod's descritpion often contain proper instructions on how to install it, if you do not find it, stick with these instructions
     - You can also copy files from archive and paste them immediately into the game's **ROOT DIRECTORY**
     - You can also extract all files, rather than being confused what file to where, just extract everything from archive and put it into game's **ROOT DIRECTORY**
+    - If the mod archive only contains .asi, you must download [Ultimate ASI Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases/tag/v9.7.2), extract it, create scripts folder, put .asi in our newly created "scripts" folder and then move .dll, and scripts folder in game's **ROOT DIRECTORY**, however, if you already have scripts folder from previous mods, just put .asi into that scripts folder
 - Misc - It's also to be marked as .ASI's because some of my mods contain more than our usual "scripts" and .dll that accompanies our folder, usually there are instructions for them in the description.
 
 ## Conclusion
