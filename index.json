@@ -16,5 +16,14 @@
         "cover": null,
         "body": "posts/fearlessrevolution-drama.md",
         "tags": ["Blog", "Modding"]
+    },
+    {
+        "slug": "my-mods-installation",
+        "title": "How to install my mods",
+        "date": "2026-07-17",
+        "summary": "Brief instructions for installation",
+        "cover": "images/my-mods-installation-preview.png",
+        "body": "posts/my-mods-installation.md",
+        "tags": ["Blog", "Modding", "Help"]
     }
 ]
