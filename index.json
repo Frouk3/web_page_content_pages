@@ -25,5 +25,14 @@
         "cover": "images/my-mods-installation-preview.png",
         "body": "posts/my-mods-installation.md",
         "tags": ["Blog", "Modding", "Help"]
+    },
+    {
+        "slug": "testing",
+        "title": "test",
+        "date": "9999-99-99",
+        "summary": "what",
+        "cover": null,
+        "body": "posts/test.md",
+        "tags": ["Blog", "Modding"]
     }
 ]
