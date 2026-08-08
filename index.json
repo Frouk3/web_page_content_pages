@@ -27,12 +27,12 @@
         "tags": ["Blog", "Modding", "Help"]
     },
     {
-        "slug": "testing",
-        "title": "test",
-        "date": "9999-99-99",
-        "summary": "what",
-        "cover": null,
-        "body": "posts/test.md",
+        "slug": "fearlessrevolution-taking-it-further",
+        "title": "Truth about Fearless Revolution",
+        "date": "2026-08-08",
+        "summary": "Fearless Revolution taking it further, their reputation beyond zero...",
+        "cover": "images/fearlessrevolution-taking-it-further-preview.png",
+        "body": "posts/fearlessrevolution-taking-it-further.md",
         "tags": ["Blog", "Modding"]
     }
 ]
