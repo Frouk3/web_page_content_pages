@@ -34,5 +34,14 @@
         "cover": "images/fearlessrevolution-taking-it-further-preview.png",
         "body": "posts/fearlessrevolution-taking-it-further.md",
         "tags": ["Blog", "Modding"]
+    },
+    {
+        "slug": "funding-new-laptop",
+        "title": "Funding for a new laptop",
+        "date": "2026-09-11",
+        "summary": "Funding for a new laptop that would help me in creating more mods",
+        "cover": "images/funding-new-laptop.png",
+        "body": "posts/funding-new-laptop.md",
+        "tags": ["Blog", "Modding"]
     }
 ]
