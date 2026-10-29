@@ -61,5 +61,14 @@
         "cover": "images/rumble-about-rust-24-10-2026.png",
         "body": "posts/rust-rumble-26-25-10.md",
         "tags": ["Blog", "Modding", "Programming"]
+    },
+    {
+        "slug": "nexus-mods-sloppinated-29-10-2026",
+        "title": "Nexus Mods newest mods, generative AI",
+        "date": "2026-10-29",
+        "summary": "Nexus Mods should be a independent website for hosting mods, however the policy about AI is not really applied to them, most importantly, it is allowed.",
+        "cover": "images/nexus-mods-sloppinated-29-10-2026.jpg",
+        "body": "posts/nexus-mods-sloppinated-29-10-2026.md",
+        "tags": ["Blog", "Tech", "Modding", "Programming"]
     }
 ]
