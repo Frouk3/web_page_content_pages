@@ -3,13 +3,13 @@ name: Notify Discord on New Blog Post
 on:
   push:
     paths:
-      - 'index.json' # Triggers only when index.json is updated
+      - 'index.json' # Triggers when index.json changes in the content repo
 
 jobs:
   notify-discord:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout content repository
         uses: actions/checkout@v4
 
       - name: Read index.json and send to Discord
@@ -34,14 +34,17 @@ jobs:
 
             const siteBaseUrl = 'https://frouk3.github.io/blog';
 
-            // Construct full URL to post page with query parameter
+            // Target host repository/branch where post assets (like images) are stored
+            const contentRawBaseUrl = 'https://raw.githubusercontent.com/frouk3/web_page_content_pages/main';
+
+            // Link to the published blog page
             const postUrl = newestPost.slug 
               ? `${siteBaseUrl}/post.html?post=${newestPost.slug}` 
               : siteBaseUrl;
 
-            // Construct full URL for cover image
+            // Cover image URL: prefer raw content link or public website link
             const imageUrl = newestPost.cover 
-              ? `${siteBaseUrl}/${newestPost.cover.replace(/^\//, '')}` 
+              ? `${contentRawBaseUrl}/${newestPost.cover.replace(/^\//, '')}` 
               : undefined;
 
             // Format tags into hashtags (#Blog #Tech #Modding)
@@ -49,11 +52,14 @@ jobs:
               ? newestPost.tags.map(tag => `#${tag}`).join(' ')
               : undefined;
 
-            // 3. Build Discord Embed payload
+            const postTitle = newestPost.title || 'New Blog Post Released!';
+
+            // 3. Build payload with hyperlinked title text
             const payload = {
+              content: `🚀 **New Blog Post:** [${postTitle}](${postUrl})`,
               embeds: [
                 {
-                  title: newestPost.title || 'New Blog Post Released!',
+                  title: postTitle,
                   description: newestPost.summary || 'A new post is live on the blog.',
                   url: postUrl,
                   color: 5814783, // Hex #58B5FF
@@ -89,4 +95,4 @@ jobs:
               throw new Error(`Discord Webhook failed with status ${response.status}`);
             }
 
-            console.log(`Successfully posted "${newestPost.title}" to Discord!`);
+            console.log(`Successfully posted "${postTitle}" to Discord!`);
