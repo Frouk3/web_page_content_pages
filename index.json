@@ -70,5 +70,14 @@
         "cover": "images/nexus-mods-sloppinated-29-10-2026.jpg",
         "body": "posts/nexus-mods-sloppinated-29-10-2026.md",
         "tags": ["Blog", "Tech", "Modding", "Programming"]
+    },
+    {
+        "slug": "dummy-action-test",
+        "title": "Dummy Action Test",
+        "date": "2026-10-29",
+        "summary": "A dummy page for testing the GitHub Actions workflow triggered by index.json changes.",
+        "cover": null,
+        "body": "posts/dummy-action-test.md",
+        "tags": ["Test"]
     }
 ]
