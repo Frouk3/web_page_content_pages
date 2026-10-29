@@ -52,7 +52,7 @@
         "cover": "images/ai-dilemma-26.png",
         "body": "posts/ai-dilemma-26.md",
         "tags": ["Blog", "Modding", "Tech"]
-    }
+    },
     {
         "slug": "rust-rumble-26-25-10",
         "title": "Popularity of Rust",
