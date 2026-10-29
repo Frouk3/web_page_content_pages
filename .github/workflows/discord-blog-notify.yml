@@ -1,0 +1,92 @@
+name: Notify Discord on New Blog Post
+
+on:
+  push:
+    paths:
+      - 'index.json' # Triggers only when index.json is updated
+
+jobs:
+  notify-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read index.json and send to Discord
+        uses: actions/github-script@v7
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        with:
+          script: |
+            const fs = require('fs');
+
+            // 1. Read and parse index.json
+            const rawData = fs.readFileSync('index.json', 'utf8');
+            const posts = JSON.parse(rawData);
+
+            if (!Array.isArray(posts) || posts.length === 0) {
+              console.log('No posts found in index.json');
+              return;
+            }
+
+            // 2. Select the newest post (last element in array)
+            const newestPost = posts[posts.length - 1]; 
+
+            const siteBaseUrl = 'https://frouk3.github.io/blog';
+
+            // Construct full URL to post page with query parameter
+            const postUrl = newestPost.slug 
+              ? `${siteBaseUrl}/post.html?post=${newestPost.slug}` 
+              : siteBaseUrl;
+
+            // Construct full URL for cover image
+            const imageUrl = newestPost.cover 
+              ? `${siteBaseUrl}/${newestPost.cover.replace(/^\//, '')}` 
+              : undefined;
+
+            // Format tags into hashtags (#Blog #Tech #Modding)
+            const tagsFormatted = Array.isArray(newestPost.tags) && newestPost.tags.length > 0
+              ? newestPost.tags.map(tag => `#${tag}`).join(' ')
+              : undefined;
+
+            // 3. Build Discord Embed payload
+            const payload = {
+              embeds: [
+                {
+                  title: newestPost.title || 'New Blog Post Released!',
+                  description: newestPost.summary || 'A new post is live on the blog.',
+                  url: postUrl,
+                  color: 5814783, // Hex #58B5FF
+                  timestamp: newestPost.date ? new Date(newestPost.date).toISOString() : new Date().toISOString(),
+                  image: imageUrl ? { url: imageUrl } : undefined,
+                  fields: tagsFormatted ? [
+                    {
+                      name: 'Tags',
+                      value: tagsFormatted,
+                      inline: true
+                    }
+                  ] : [],
+                  footer: {
+                    text: 'frouk3.github.io/blog'
+                  }
+                }
+              ]
+            };
+
+            // 4. Send POST request to Discord Webhook
+            const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+            if (!webhookUrl) {
+              throw new Error('DISCORD_WEBHOOK_URL secret is missing.');
+            }
+
+            const response = await fetch(webhookUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+              throw new Error(`Discord Webhook failed with status ${response.status}`);
+            }
+
+            console.log(`Successfully posted "${newestPost.title}" to Discord!`);
