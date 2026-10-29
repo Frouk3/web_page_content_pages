@@ -53,4 +53,13 @@
         "body": "posts/ai-dilemma-26.md",
         "tags": ["Blog", "Modding", "Tech"]
     }
+    {
+        "slug": "rust-rumble-26-25-10",
+        "title": "Popularity of Rust",
+        "date": "2026-10-25",
+        "summary": "Rust is a programming language, or why people choose it?",
+        "cover": "images/rumble-about-rust-24-10-2026.png",
+        "body": "posts/rust-rumble-26-25-10.md",
+        "tags": ["Blog", "Modding", "Programming"]
+    }
 ]
