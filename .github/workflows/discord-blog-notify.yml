@@ -80,12 +80,25 @@ jobs:
             };
 
             // 4. Send POST request to Discord Webhook
-            const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
-            if (!webhookUrl) {
+            const rawWebhookUrl = process.env.DISCORD_WEBHOOK_URL;
+            if (!rawWebhookUrl) {
               throw new Error('DISCORD_WEBHOOK_URL secret is missing.');
             }
+            const normalizedWebhookUrl = rawWebhookUrl.trim().replace(/^(['"])(.*)\1$/, '$2').trim();
+            const webhookUrl = /^discord(app)?\.com\/api\/webhooks\//i.test(normalizedWebhookUrl)
+              ? `https://${normalizedWebhookUrl}`
+              : normalizedWebhookUrl;
+            let parsedWebhookUrl;
+            try {
+              parsedWebhookUrl = new URL(webhookUrl);
+            } catch {
+              throw new Error('DISCORD_WEBHOOK_URL is invalid. Expected a valid Discord webhook URL.');
+            }
+            if (parsedWebhookUrl.protocol !== 'https:') {
+              throw new Error('DISCORD_WEBHOOK_URL must use https.');
+            }
 
-            const response = await fetch(webhookUrl, {
+            const response = await fetch(parsedWebhookUrl.toString(), {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(payload)
