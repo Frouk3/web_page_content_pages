@@ -94,6 +94,12 @@ jobs:
             } catch {
               throw new Error('DISCORD_WEBHOOK_URL is invalid. Expected a valid Discord webhook URL.');
             }
+            if (
+              parsedWebhookUrl.protocol === 'http:' &&
+              /^discord(app)?\.com$/i.test(parsedWebhookUrl.hostname)
+            ) {
+              parsedWebhookUrl.protocol = 'https:';
+            }
             if (parsedWebhookUrl.protocol !== 'https:') {
               throw new Error('DISCORD_WEBHOOK_URL must use https.');
             }
