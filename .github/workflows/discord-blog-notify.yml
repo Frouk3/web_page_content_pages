@@ -20,7 +20,22 @@ jobs:
           script: |
             const fs = require('fs');
 
-            // 1. Read and parse index.json
+            // 1. Read and sanitize Webhook URL
+            let webhookUrl = (process.env.DISCORD_WEBHOOK_URL || '').trim();
+
+            if (!webhookUrl) {
+              throw new Error('DISCORD_WEBHOOK_URL secret is missing or empty. Please set it under Repo Settings > Secrets.');
+            }
+
+            if (!webhookUrl.startsWith('https://')) {
+              if (webhookUrl.startsWith('http://')) {
+                webhookUrl = webhookUrl.replace('http://', 'https://');
+              } else {
+                webhookUrl = `https://${webhookUrl.replace(/^\/+/, '')}`;
+              }
+            }
+
+            // 2. Read and parse index.json
             const rawData = fs.readFileSync('index.json', 'utf8');
             const posts = JSON.parse(rawData);
 
@@ -29,38 +44,33 @@ jobs:
               return;
             }
 
-            // 2. Select the newest post (last element in array)
+            // 3. Select the newest post (last element in array)
             const newestPost = posts[posts.length - 1]; 
 
             const siteBaseUrl = 'https://frouk3.github.io/blog';
-
-            // Target host repository/branch where post assets (like images) are stored
             const contentRawBaseUrl = 'https://raw.githubusercontent.com/frouk3/web_page_content_pages/main';
 
-            // Link to the published blog page
             const postUrl = newestPost.slug 
               ? `${siteBaseUrl}/post.html?post=${newestPost.slug}` 
               : siteBaseUrl;
 
-            // Cover image URL: prefer raw content link or public website link
             const imageUrl = newestPost.cover 
               ? `${contentRawBaseUrl}/${newestPost.cover.replace(/^\//, '')}` 
               : undefined;
 
-            // Format tags into hashtags (#Blog #Tech #Modding)
             const tagsFormatted = Array.isArray(newestPost.tags) && newestPost.tags.length > 0
               ? newestPost.tags.map(tag => `#${tag}`).join(' ')
               : undefined;
 
-            const postTitle = newestPost.title || 'New Blog Post Released!';
+            const postTitle = newestPost.title || 'New Blog Post';
 
-            // 3. Build payload with hyperlinked title text
+            // 4. Build minimalist payload (no emojis)
             const payload = {
-              content: `🚀 **New Blog Post:** [${postTitle}](${postUrl})`,
+              content: `New post published: [${postTitle}](${postUrl})`,
               embeds: [
                 {
                   title: postTitle,
-                  description: newestPost.summary || 'A new post is live on the blog.',
+                  description: newestPost.summary || '',
                   url: postUrl,
                   color: 5814783, // Hex #58B5FF
                   timestamp: newestPost.date ? new Date(newestPost.date).toISOString() : new Date().toISOString(),
@@ -79,12 +89,7 @@ jobs:
               ]
             };
 
-            // 4. Send POST request to Discord Webhook
-            const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
-            if (!webhookUrl) {
-              throw new Error('DISCORD_WEBHOOK_URL secret is missing.');
-            }
-
+            // 5. Send POST request to Discord Webhook
             const response = await fetch(webhookUrl, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
