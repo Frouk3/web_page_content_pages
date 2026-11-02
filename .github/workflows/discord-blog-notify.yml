@@ -45,7 +45,7 @@ jobs:
             }
 
             // 3. Select the newest post (last element in array)
-            const newestPost = posts[posts.length - 1]; 
+            const newestPost = posts[0]; 
 
             const siteBaseUrl = 'https://frouk3.github.io/blog';
             const contentRawBaseUrl = 'https://raw.githubusercontent.com/frouk3/web_page_content_pages/main';
