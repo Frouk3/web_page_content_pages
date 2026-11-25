@@ -1,28 +1,25 @@
 ## Introduction
-Hello again!
+Hello again! 
 
-Today, I'm addressing the recklessness of Fearless Revolution and providing proof that further damages their reputation (if they even have one left at this point).
+Today, I want to talk about just how reckless Fearless Revolution has become and share some proof that digs their reputation even deeper—assuming they even have one left at this point.
 
 ## Are the Users Just Bots?!
-Surprisingly, yes-or they are simply automated accounts designed to praise "modders". They continuously promote tables for their supposed usefulness, even when those tables are nothing more than simple redirects to their bloatware app.
+Honestly, yes, or at the very least, they're automated accounts set up just to shower "modders" with fake praise. They constantly hype up how useful these tables are, even when the files are nothing more than hollow redirects pushing you toward their bloatware app.
 
-It all started when key table contributors were forcibly banned, or had their account names scrambled into random pseudonyms, because they refused to put their tables behind a paywall. The site's administration actively replaced genuine content-links, tables, and actual features-with dummy tables designed solely to push downloads for their paywalled app, "ModEngine".
+This whole mess started when the site's top table creators refused to lock their work behind a paywall. In response, the admins either banned them outright or scrambled their usernames into random pseudonyms. From there, the administration actively gutted real content—stripping out actual links, tables, and features—and swapped them with dummy tables designed purely to force downloads of their paid app, "ModEngine."
 
-I previously read an article discussing how the maintenance costs for their site were rising *(part of me hopes they eventually have to take Fearless Revolution down for good)*. At the time, I hoped the site would survive because of the immense time and effort community members had poured into creating so many cheat tables. Today, however, the platform has degraded into a site overrun with fake praise.
+I remember reading an article a while back about how the site's maintenance costs were skyrocketing *(and honestly, part of me hopes it forces them to shut Fearless Revolution down for good)*. Back then, I actually wanted the site to pull through because of the sheer amount of time and effort the community had poured into building all those cheat tables. Now, though, the place has completely rotted into a wasteland of manufactured hype.
 
 ## Blame and Malice
 ![Fake post along with how they blame Dark Byte after closing the source](https://raw.githubusercontent.com/Frouk3/web_page_content_pages/main/images/fearlessrevolution-taking-it-further-blame-and-malice.png)
 
-Here, you can see that the post was published *after* my account details were altered. One of the bots (or real users, if any still exist there) blames **Eric** (Dark Byte, the creator of Cheat Engine) for closing Cheat Engine's source code. However, Eric had valid reasons for making it closed-source, primarily centered on the unlicensed commercial exploitation of his work:
+If you look closely, you can see this post went up *after* my account details were messed with. In it, one of the bots—or an actual user, if any are even left—tries to blame **Eric** (Dark Byte, the creator of Cheat Engine) for taking Cheat Engine closed-source. The thing is, Eric had completely valid reasons for locking down the code, mostly because people were shamelessly exploiting his work for money without permission. Random third parties were compiling and distributing the source code without his official installer, cutting off the ad revenue that actually funded the project, while others were flat-out stealing the code to repackage and resell it as their own commercial software—which is the exact playbook "ModEngine" used.
 
-1. **Unapproved Distribution**: People were compiling and distributing the Cheat Engine source code without his official installer, which helped fund the project through ads.
-2. **Code Theft**: Third parties were exploiting the code, stealing it, and reselling it as separate commercial applications (exactly what happened with "ModEngine").
-
-The site administrators blame Dark Byte because they can no longer easily profit from an application with a closed source code. Without access to new source updates, they can't develop further features for ModEngine, effectively leaving it to stall and die.
+At the end of the day, the site admins are only mad at Dark Byte because they can't easily cash in on his work anymore. Cut off from new source updates, they can't build new features for ModEngine, leaving their cash-grab app to slowly stall out and die.
 
 ## Conclusion
-The admins and creators behind "ModEngine" and Fearless Revolution went corrupt a long time ago-something I unfortunately didn't notice right away, but am making clear now for others. Even their registration process requires an invite code; when a public forum locks itself behind invite codes, something shady is usually going on.
+Looking back, the people running Fearless Revolution and "ModEngine" went corrupt a long time ago. I didn't catch on right away, which is unfortunate, so I'm laying it all out now to warn everyone else. You can't even register on the site anymore without an invite code—and whenever a supposedly public forum locks its doors behind invite-only access, you know something shady is happening behind the scenes.
 
-In any case, I strongly advise against visiting Fearless Revolution, using their forum, or downloading anything related to "ModEngine". You don't want that bloatware anywhere near your PC or your screen.
+Whatever you do, stay away from Fearless Revolution, skip their forums, and definitely don't download anything tied to "ModEngine." You really don't want that kind of bloatware anywhere near your PC.
 
-Thank you for reading, it was a pleasure putting this together. Stay safe, and good luck!
+Thanks for reading—it was a pleasure putting this together for you. Stay safe out there, and good luck!
